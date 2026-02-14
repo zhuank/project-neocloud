@@ -171,6 +171,82 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
+        /* timeline component styles */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            background: #ccc;
+            top: 0;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        .timeline-item:nth-child(odd) .icon {
+            right: -30px;
+        }
+        .timeline-item:nth-child(even) .icon {
+            left: -30px;
+        }
+        .timeline-item .icon {
+            position: absolute;
+            top: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        .timeline-item .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .timeline-item .content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-left: 80px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid var(--primary-color);
+        }
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        @media (max-width: 600px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 40px; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::before { left: 10px; }
+        }
         @media (max-width: 900px) {
             .container { padding: 18px 4px; }
             nav .nav-links { gap: 10px; }
@@ -206,18 +282,9 @@
     </section>
 
     <section class="container">
-        <h2>Development Timeline</h2>
-        <ul>
-            <li><strong>March 2026:</strong> Completion of the first-generation digital human prototype, featuring real-time voice and text interaction, basic emotional expression, and customizable appearance. Internal pilot programs launched with select partners in education and healthcare.</li>
-            <li><strong>June 2026:</strong> Public beta release introducing advanced scenario modules for interactive teaching, virtual patient guidance, and live-streaming co-hosting. Integration with popular content platforms and support for multilingual communication. User feedback collection and iterative optimization.</li>
-            <li><strong>September 2026:</strong> Official product launch with expanded customization options, including gesture control, facial animation, and scenario-based personality presets. Deployment in real-world classrooms, clinics, and live-streaming studios. Launch of developer API for third-party integration.</li>
-            <li><strong>2027 and beyond:</strong> Continuous feature upgrades, such as cross-platform avatar synchronization, enhanced emotional intelligence, and industry-specific digital human templates. Expansion into new sectors like finance, tourism, and public services, with a focus on security, privacy, and user experience excellence.</li>
-        </ul>
-    </section>
-
-    <section class="container">
         <h2>About Our Digital Human</h2>
-        <p>The NeoCloud digital human is a next-generation virtual persona designed to seamlessly interact with users through natural conversation, expressive facial animations, and context-aware responses. Key features include:</p>
+        <p>The NeoCloud digital human is a next-generation virtual persona designed to seamlessly interact with users through natural conversation, expressive facial animations, and context-aware responses. It combines advanced AI, customizable visual avatars, and plug‑and‑play integration to deliver engaging experiences across industries.</p>
+        <p>Core platform capabilities include:</p>
         <ul>
             <li><strong>Natural Language Communication:</strong> Understands and responds to user input in multiple languages, supporting both voice and text channels for smooth, intuitive interaction.</li>
             <li><strong>Emotional Intelligence:</strong> Recognizes user sentiment and adapts tone, facial expressions, and gestures to create empathetic, engaging experiences.</li>
@@ -225,8 +292,49 @@
             <li><strong>Customizable Appearance & Personality:</strong> Offers a wide range of avatars, styles, and personality presets to fit diverse application scenarios and brand identities.</li>
             <li><strong>Scenario Adaptability:</strong> Optimized for education, healthcare, customer service, and entertainment, with specialized modules for each domain.</li>
             <li><strong>Seamless Integration:</strong> Easily connects with existing platforms and tools via API, enabling rapid deployment and scalability.</li>
+            <li><strong>Analytics & Monitoring:</strong> Built-in dashboards surface interaction metrics, sentiment trends, and performance KPIs for continuous improvement.</li>
+            <li><strong>Security & Compliance:</strong> Enterprise-grade data protections, role-based access, and GDPR/HIPAA support ensure safe deployment.</li>
         </ul>
-        <p>NeoCloud digital humans are built to empower organizations and individuals to create meaningful, interactive digital experiences that inspire trust, foster learning, and enhance service delivery.</p>
+        <p>NeoCloud empowers organizations and individuals to build meaningful, interactive digital experiences that inspire trust, foster learning, and streamline service delivery.</p>
+    </section>
+
+    <section class="container">
+        <h2>项目推进计划</h2>
+        <p>以下时间轴展示了项目的关键里程碑和推进活动：</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="icon">
+                    <img src="https://via.placeholder.com/60" alt="Prototype" />
+                </div>
+                <div class="content">
+                    <strong>March 2026:</strong> 完成第一代数字人原型开发，并启动教育与医疗领域的内部验证。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="icon">
+                    <img src="https://via.placeholder.com/60" alt="Beta Release" />
+                </div>
+                <div class="content">
+                    <strong>June 2026:</strong> 公测阶段，扩展互动模块、接入常用平台、收集用户反馈并优化功能。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="icon">
+                    <img src="https://via.placeholder.com/60" alt="Launch" />
+                </div>
+                <div class="content">
+                    <strong>September 2026:</strong> 正式产品发布，开放API并部署到真实课堂、诊室和直播现场。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="icon">
+                    <img src="https://via.placeholder.com/60" alt="Future" />
+                </div>
+                <div class="content">
+                    <strong>2027及以后：</strong> 持续迭代、扩展行业模板，推进跨平台同步和增强情感智能。
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
