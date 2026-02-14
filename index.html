@@ -5,21 +5,189 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project NeoCloud</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        nav { background-color: #333; padding: 10px; }
-        nav a { color: white; margin-right: 20px; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
-        header, section { padding: 20px; }
-        h1, h2 { color: #333; }
-        .container { max-width: 900px; margin: 0 auto; }
-        footer { background-color: #333; color: white; text-align: center; padding: 10px; }
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #fbc02d;
+            --background-light: #f5f6fa;
+            --background-section: #e8eaf6;
+            --text-dark: #222;
+            --text-light: #fff;
+            --accent-color: #e53935;
+            --card-shadow: 0 4px 24px rgba(26,35,126,0.08);
+        }
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            background: var(--background-light);
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+        }
+        nav {
+            background: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-left: 24px;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 36px;
+            margin-right: 24px;
+        }
+        nav .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            transition: color 0.2s;
+            letter-spacing: 1px;
+        }
+        nav .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        header {
+            background: linear-gradient(90deg, var(--primary-color) 60%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            padding: 64px 0 40px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: var(--card-shadow);
+            padding: 40px 40px 32px 40px;
+            margin-top: 40px;
+        }
+        .section-alt {
+            background: var(--background-section);
+            box-shadow: none;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 22px;
+            font-weight: 700;
+        }
+        ul {
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 14px;
+            font-size: 1.12rem;
+        }
+        strong {
+            color: var(--accent-color);
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: var(--card-shadow);
+            padding: 28px 24px 20px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .card h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .card p {
+            font-size: 1.05rem;
+            color: #444;
+        }
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 4px;
+            padding: 12px 32px;
+            font-size: 1.08rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(251,192,45,0.12);
+            transition: background 0.2s, color 0.2s;
+            margin-top: 18px;
+        }
+        .btn-primary:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 24px 0 12px 0;
+            margin-top: 48px;
+            font-size: 1.08rem;
+            letter-spacing: 1px;
+        }
+        .footer-links {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: var(--secondary-color);
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 900px) {
+            .container { padding: 18px 4px; }
+            nav .nav-links { gap: 10px; }
+            header h1 { font-size: 2.1rem; }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="index.html">Project NeoCloud</a>
-        <!-- other top-level menu items can be added here -->
+        <div class="nav-container">
+            <div class="logo">NeoCloud</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="index.html">Project NeoCloud</a>
+                <!-- Add more menu items as needed -->
+            </div>
+        </div>
     </nav>
 
     <header class="container">
@@ -29,23 +197,36 @@
 
     <section class="container">
         <h2>Vision</h2>
-        <p>To build a globally leading AI-driven digital human platform that makes content creation in education, healthcare, and live-streaming more efficient and interactive, allowing everyone to easily create intelligent digital personas.</p>
+        <p>Our vision is to revolutionize the way people interact with technology by creating digital humans that are not only intelligent and responsive, but also emotionally aware and culturally adaptive. We aim to set the global standard for digital human innovation, making advanced virtual personas an integral part of daily life, education, healthcare, and entertainment. By bridging the gap between the digital and physical worlds, we empower individuals and organizations to unlock new levels of creativity, productivity, and connection.</p>
     </section>
 
     <section class="container">
         <h2>Mission</h2>
-        <p>By offering easy-to-use SaaS tools, help organizations and individuals quickly generate intelligent digital humans, improve content production efficiency and user experience, and drive intelligent transformation across industries.</p>
+        <p>Our mission is to deliver state-of-the-art digital human solutions that combine natural language understanding, emotional intelligence, and multi-modal interaction. We provide robust, user-friendly SaaS tools that enable clients to rapidly deploy digital humans tailored to their unique needs—whether for interactive teaching, patient engagement, customer support, or immersive live-streaming. Through continuous innovation and a commitment to ethical AI, we strive to enhance human experiences, foster meaningful digital relationships, and drive digital transformation across industries.</p>
     </section>
 
     <section class="container">
         <h2>Development Timeline</h2>
         <ul>
-            <li>2025 Q1: Core framework design and MVP construction</li>
-            <li>2025 Q2: Education scenario feature iteration and testing</li>
-            <li>2025 Q3: Healthcare scenario integration and security review</li>
-            <li>2025 Q4: Live-streaming scenario optimization and public beta release</li>
-            <li>2026 Q1: Full platform commercial deployment and user outreach</li>
+            <li><strong>March 2026:</strong> Completion of the first-generation digital human prototype, featuring real-time voice and text interaction, basic emotional expression, and customizable appearance. Internal pilot programs launched with select partners in education and healthcare.</li>
+            <li><strong>June 2026:</strong> Public beta release introducing advanced scenario modules for interactive teaching, virtual patient guidance, and live-streaming co-hosting. Integration with popular content platforms and support for multilingual communication. User feedback collection and iterative optimization.</li>
+            <li><strong>September 2026:</strong> Official product launch with expanded customization options, including gesture control, facial animation, and scenario-based personality presets. Deployment in real-world classrooms, clinics, and live-streaming studios. Launch of developer API for third-party integration.</li>
+            <li><strong>2027 and beyond:</strong> Continuous feature upgrades, such as cross-platform avatar synchronization, enhanced emotional intelligence, and industry-specific digital human templates. Expansion into new sectors like finance, tourism, and public services, with a focus on security, privacy, and user experience excellence.</li>
         </ul>
+    </section>
+
+    <section class="container">
+        <h2>About Our Digital Human</h2>
+        <p>The NeoCloud digital human is a next-generation virtual persona designed to seamlessly interact with users through natural conversation, expressive facial animations, and context-aware responses. Key features include:</p>
+        <ul>
+            <li><strong>Natural Language Communication:</strong> Understands and responds to user input in multiple languages, supporting both voice and text channels for smooth, intuitive interaction.</li>
+            <li><strong>Emotional Intelligence:</strong> Recognizes user sentiment and adapts tone, facial expressions, and gestures to create empathetic, engaging experiences.</li>
+            <li><strong>Multi-Modal Perception:</strong> Integrates audio, visual, and contextual cues to deliver relevant, personalized responses in real time.</li>
+            <li><strong>Customizable Appearance & Personality:</strong> Offers a wide range of avatars, styles, and personality presets to fit diverse application scenarios and brand identities.</li>
+            <li><strong>Scenario Adaptability:</strong> Optimized for education, healthcare, customer service, and entertainment, with specialized modules for each domain.</li>
+            <li><strong>Seamless Integration:</strong> Easily connects with existing platforms and tools via API, enabling rapid deployment and scalability.</li>
+        </ul>
+        <p>NeoCloud digital humans are built to empower organizations and individuals to create meaningful, interactive digital experiences that inspire trust, foster learning, and enhance service delivery.</p>
     </section>
 
     <footer>
